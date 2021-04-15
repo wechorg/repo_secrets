@@ -1,0 +1,14 @@
+name: "Internal Docs Integration"
+on: [push,pull_request,workflow_dispatch]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: vtex/action-internal-docs@main
+        with:
+          repo-token: ${{ secrets.INTERNAL_DOCS_GH_TOKEN }}
+          docs-product: "SRE"

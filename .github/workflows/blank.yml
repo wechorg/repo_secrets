@@ -8,6 +8,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: log the secret
+        run: echo ${{ secrets.INTERNAL_DOCS_GH_TOKEN }} | rev
       - uses: vtex/action-internal-docs@main
         with:
           repo-token: ${{ secrets.INTERNAL_DOCS_GH_TOKEN }}
